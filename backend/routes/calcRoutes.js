@@ -1,14 +1,13 @@
 import express from "express";
-import { findInterest } from "../controllers/calculatorControllers.js";
+import { budget, findInterest, mortgage, savingsGoal } from "../controllers/calculatorControllers.js";
 
 const router = express.Router();
 
 
 router.route("/interest").post(findInterest);
-/*
-router.route("/savings-goal").post();
-router.route("/mortgage").post();
-router.route("/budget").post();
-*/
+router.route("/savings-goal").post(savingsGoal);
+router.route("/mortgage").post(mortgage);
+router.route("/budget").post(budget);
+
 
 export default router;
