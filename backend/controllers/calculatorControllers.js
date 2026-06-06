@@ -95,6 +95,7 @@ const mortgage = async (req, res) => {
     }
 }
 
+//Budget calculator
 const budget = async (req, res) => {
 
     const {income, expenses} = req.body
