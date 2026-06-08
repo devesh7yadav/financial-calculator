@@ -4,7 +4,7 @@ import { budget, findInterest, mortgage, savingsGoal } from "../controllers/calc
 const router = express.Router();
 
 router.post("/interest", findInterest);
-router.post("/savings", savingsGoal);
+router.post("/savingsGoal", savingsGoal);
 router.post("/mortgage", mortgage);
 router.post("/budget", budget);
 

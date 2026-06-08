@@ -85,17 +85,22 @@ const budget = async (req, res) => {
 
     const {income, expenses} = req.body
 
+    const incomeNum = Number(income);
+
     let total_expenses = 0;
 
     //Get the total expense amount
     for (let i = 0; i < expenses.length; i++) {
-        total_expenses += expenses[i].amount;
+        total_expenses += Number(expenses[i].amount);
     }
 
     //Find the leftover amount
-    const total = income - total_expenses;
+    const total = incomeNum - total_expenses;
 
-    return res.json({amount});
+    return res.json({
+        amount: total,
+        total_expenses
+    });
 }
 
 export {

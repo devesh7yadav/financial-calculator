@@ -61,38 +61,38 @@ function InterestCalculator() {
 
       {/*Handles all the inputs */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="principal">Principal:</label>
         <input
           type="number"
           id="principal"
           name="principal"
+          placeholder="Principal"
           value={formData.principal}
           onChange={handleChange}
         />
 
-        <label htmlFor="rate">Interest Rate:</label>
         <input
           type="number"
           id="rate"
           name="rate"
+          placeholder="Interest"
           value={formData.rate}
           onChange={handleChange}
         />
 
-        <label htmlFor="freq">Frequency:</label>
         <input
           type="number"
           id="freq"
           name="freq"
+          placeholder="Frequency"
           value={formData.freq}
           onChange={handleChange}
         />
 
-        <label htmlFor="time">Time:</label>
         <input
           type="number"
           id="time"
           name="time"
+          placeholder="Time"
           value={formData.time}
           onChange={handleChange}
         />
