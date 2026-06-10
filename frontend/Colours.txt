@@ -1,0 +1,7 @@
+#134074 - Dark Blue  --- Title colour
+#13315c - Darker Blue -- Label and Input Colours
+#0b2545 - Darkest Blue --- Navbar Colour/Subtitles and Button Text
+#5f92cc - Light Blue - Button Background Colour
+#eef4ed - White-ish  --- Background colour
+#a11010 - Red --- Clear Button
+#8da9c4 - Very Light Blue --- Hover

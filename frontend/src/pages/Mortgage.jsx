@@ -28,7 +28,7 @@ function Mortgage() {
         formData.interest === "" ||
         formData.time === ""
         ){
-        setResult("Missing fields");
+        setResult("Missing field(s)");
         return;
         }
 
