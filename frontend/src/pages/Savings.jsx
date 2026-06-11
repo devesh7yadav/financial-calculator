@@ -30,7 +30,7 @@ function Savings() {
         formData.interest === "" ||
         formData.time === ""
         ){
-        setResult("Missing fields");
+        setResult("Missing field(s)");
         return;
         }
 
@@ -52,55 +52,102 @@ function Savings() {
             return;
         }
 
-        setResult(Number(data.amount).toFixed(2));
+        setResult(data.amount);
     };
 
+  //Resets all the fields
+  const handleReset = () => {
+    setFormData({
+        goal: "",
+        current: "",
+        interest: "",
+        time: "",
+    })
+    setResult(null);
+  }
+
+  //Output
+  let output;
+  if (result === null){
+    output = "--";
+  } else if (result < 0){
+    output = "No contributions needed"
+  } else if (!isNaN(result)){
+    output = `$${result.toFixed(2)}`;
+  } else{
+    output = result;
+  }
+
+  //Styling
+  const labelDesign = "w-48 shrink-0 font-bold text-[#13315c]";
+  const inputDesign = "outline-1 w-full border p-2 rounded font-semibold text-[#13315c]";
+  const alignBoxes = "flex items-center gap-4";
+ 
+  //Displays the form
   return (
     <div>
-      <h1>Savings Goal Calculator</h1>
+      <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Savings Goal Calculator</h1>
 
-      {/*Handles all the inputs */}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          id="goal"
-          name="goal"
-          placeholder="Goal"
-          value={formData.goal}
-          onChange={handleChange}
-        />
+      <div className="flex max-w-5xl px-24 gap-x-12 items-start">
+        <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
+          <div className={alignBoxes}>
+            <label htmlFor="goal" className={labelDesign}>Goal ($)</label>
+            <input
+              className={inputDesign}
+              type="number"
+              id="goal"
+              name="goal"
+              value={formData.goal}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          type="number"
-          id="current"
-          name="current"
-          placeholder="Current"
-          value={formData.current}
-          onChange={handleChange}
-        />
+          <div className={alignBoxes}>
+            <label htmlFor="current" className={labelDesign}>Current Amount ($)</label> 
+            <input
+              className={inputDesign}
+              type="number"
+              id="current"
+              name="current"
+              value={formData.current}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          type="number"
-          id="interest"
-          name="interest"
-          placeholder="Interest"
-          value={formData.interest}
-          onChange={handleChange}
-        />
+          <div className={alignBoxes}>
+            <label htmlFor="interest" className={labelDesign}>Annual Interest Rate (%)</label> 
+            <input
+              className={inputDesign}
+              type="number"
+              id="interest"
+              name="interest"
+              value={formData.interest}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          type="number"
-          id="time"
-          name="time"
-          placeholder="Time"
-          value={formData.time}
-          onChange={handleChange}
-        />
+          <div className={alignBoxes}>
+            <label htmlFor="time" className={labelDesign}>Time (yrs)</label> 
+            <input
+              className={inputDesign}
+              type="number"
+              id="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+            />
+          </div>
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit" className="border p-3 rounded font-bold text-[#0b2545] bg-[#5f92cc] hover:text-[#8da9c4]">Submit</button>
+          <button type="reset" className="border p-3 rounded font-bold text-[#a11010] bg-[#5f92cc] hover:text-[#8da9c4]">Clear</button>
+        </form>
 
-      {result !== null && <h2>You need to contribute: {result} per month</h2>}
+        <div className="min-w-[220px] border p-4 rounded">
+            <h2 className="text-sm text-[#134074]">Monthly Contribution:</h2>
+            <div className="text-xl font-semibold text-[#13315c] mt-2"> {output} </div>
+        </div>
+
+      </div>
     </div>
   );
 }

@@ -23,6 +23,7 @@ function Mortgage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        //Empty Fields
         if (
         formData.principal === "" ||
         formData.interest === "" ||
@@ -30,6 +31,12 @@ function Mortgage() {
         ){
         setResult("Missing field(s)");
         return;
+        }
+
+        //Interest is too high
+        if (formData.interest > 100){
+          setResult("Interest Too High");
+          return;
         }
 
         const response = await fetch("http://localhost:5000/api/mortgage", {
@@ -49,47 +56,94 @@ function Mortgage() {
             return;
         }
 
+        //Makes sure the answer can be displayed
+        if(data.amount == null || data.amount > 1e+10) {
+          setResult("Too Big");
+          return;
+        }
+
         setResult(Number(data.amount).toFixed(2));
     };
 
+
+  //Resets all the fields
+  const handleReset = () => {
+    setFormData({
+        principal: "",
+        interest: "",
+        time: "",
+    })
+    setResult(null);
+  }
+
+  //Output
+  let output;
+  if (result === null){
+    output = "--";
+  } else if (!isNaN(result)){
+    output = `$${result} /month`;
+  } else{
+    output = result;
+  }
+
+  //Styling
+  const labelDesign = "w-48 shrink-0 font-bold text-[#13315c]";
+  const inputDesign = "outline-1 w-full border p-2 rounded font-semibold text-[#13315c]";
+  const alignBoxes = "flex items-center gap-4";
+ 
+  //Displays the form
   return (
     <div>
-      <h1>Savings Goal Calculator</h1>
+      <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Mortgage Calculator</h1>
 
-      {/*Handles all the inputs */}
-      <form onSubmit={handleSubmit}>
-        {/*<label htmlFor="principal">Principal:</label> Incase i change my mind later*/} 
-        <input
-          type="number"
-          id="principal"
-          name="principal"
-          placeholder="Principal"
-          value={formData.principal}
-          onChange={handleChange}
-        />
+      <div className="flex max-w-5xl px-24 gap-x-12 items-start">
+        <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
+          <div className={alignBoxes}>
+            <label htmlFor="principal" className={labelDesign}>Principal ($)</label> 
+            <input
+              className={inputDesign}
+              type="number"
+              id="principal"
+              name="principal"
+              value={formData.principal}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          type="number"
-          id="interest"
-          name="interest"
-          placeholder="Interest"
-          value={formData.interest}
-          onChange={handleChange}
-        />
+          <div className={alignBoxes}>
+            <label htmlFor="principal" className={labelDesign}>Annual Interest Rate (%)</label> 
+            <input
+              className={inputDesign}
+              type="number"
+              id="interest"
+              name="interest"
+              value={formData.interest}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          type="number"
-          id="time"
-          name="time"
-          placeholder="Time"
-          value={formData.time}
-          onChange={handleChange}
-        />
+          <div className={alignBoxes}>
+            <label htmlFor="principal" className={labelDesign}>Time (yrs)</label> 
+            <input
+              className={inputDesign}
+              type="number"
+              id="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+            />
+          </div>
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit" className="border p-3 rounded font-bold text-[#0b2545] bg-[#5f92cc] hover:text-[#8da9c4]">Submit</button>
+          <button type="reset" className="border p-3 rounded font-bold text-[#a11010] bg-[#5f92cc] hover:text-[#8da9c4]">Clear</button>
+        </form>
 
-      {result !== null && <h2>{result}</h2>}
+        <div className="min-w-[220px] border p-4 rounded">
+          <h2 className="text-sm text-[#134074]">You will pay:</h2>
+          <div className="text-xl font-semibold text-[#13315c] mt-2"> {output} </div>
+        </div>
+
+      </div>
     </div>
   );
 }

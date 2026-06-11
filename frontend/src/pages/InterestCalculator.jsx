@@ -24,13 +24,14 @@ function InterestCalculator() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //Empty Fields
     if (
       formData.principal === "" ||
       formData.rate === "" ||
       formData.freq === "" ||
       formData.time === ""
     ){
-      setResult("Missing fields");
+      setResult("Missing field(s)");
       return;
     }
 
@@ -72,6 +73,16 @@ function InterestCalculator() {
     setResult(null);
   }
 
+  //Output
+  let output;
+  if (result === null){
+    output = "--";
+  } else if (!isNaN(result)){
+    output = `$${result}`;
+  } else{
+    output = result;
+  }
+
   //Styling
   const labelDesign = "w-48 shrink-0 font-bold text-[#13315c]";
   const inputDesign = "outline-1 w-full border p-2 rounded font-semibold text-[#13315c]";
@@ -83,9 +94,7 @@ function InterestCalculator() {
       <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Compound Interest Calculator</h1>
 
       <div className="flex max-w-5xl px-24 gap-x-12 items-start">
-        {/*Handles all the inputs */}
         <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
-
           <div className={alignBoxes}>
             <label htmlFor="principal" className={labelDesign}>Principal ($)</label>
             <input
@@ -136,15 +145,11 @@ function InterestCalculator() {
 
           <button type="submit" className="border p-3 rounded font-bold text-[#0b2545] bg-[#5f92cc] hover:text-[#8da9c4]">Submit</button>
           <button type="reset" className="border p-3 rounded font-bold text-[#a11010] bg-[#5f92cc] hover:text-[#8da9c4]">Clear</button>
-
         </form>
 
         <div className="min-w-[220px] border p-4 rounded">
-          <h2 className="text-sm text-[#134074]">Result</h2>
-
-          <div className="text-xl font-semibold text-[#13315c] mt-2">
-            {result ?? "--"}
-          </div>
+          <h2 className="text-sm text-[#134074]">You will have:</h2>
+          <div className="text-xl font-semibold text-[#13315c] mt-2">{output}</div>
         </div>
 
       </div>

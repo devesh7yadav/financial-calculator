@@ -59,7 +59,6 @@ const mortgage = async (req, res) => {
         return res.status(400).json({ message: "Missing fields" });
     } 
 
-
     try {
         //Convert interest and time to months
         const monthly_interest = interest / 100 / 12;
