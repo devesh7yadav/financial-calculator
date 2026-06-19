@@ -1,14 +1,15 @@
 import { useState } from "react";
+import Navbar from "../Navbar";
 
 function Savings() {
 
+    //Hooks
     const [formData, setFormData] = useState({
         "goal": "",
         "current": "",
         "interest": "",
         "time": "",
     });
-
     const [result, setResult] = useState(null);
 
     const handleChange = (e) => {
@@ -86,6 +87,7 @@ function Savings() {
   //Displays the form
   return (
     <div>
+      <Navbar/>
       <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Savings Goal Calculator</h1>
 
       <div className="flex max-w-5xl px-24 gap-x-12 items-start">

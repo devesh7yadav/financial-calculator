@@ -1,14 +1,15 @@
 import { useState } from "react";
+import Navbar from "../Navbar";
 
 function InterestCalculator() {
 
+  //Hooks
   const [formData, setFormData] = useState({
     principal: "",
     rate: "",
     freq: "",
     time: "",
   });
-
   const [result, setResult] = useState(null);
 
   const handleChange = (e) => {
@@ -91,6 +92,7 @@ function InterestCalculator() {
   //Displays the form
   return (
     <div>
+      <Navbar/>
       <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Compound Interest Calculator</h1>
 
       <div className="flex max-w-5xl px-24 gap-x-12 items-start">
@@ -121,14 +123,21 @@ function InterestCalculator() {
 
           <div className={alignBoxes}>
             <label htmlFor="freq" className={labelDesign}>Frequency (/yr)</label>
-            <input
+            <select
               className={inputDesign}
-              type="number"
               id="freq"
               name="freq"
               value={formData.freq}
               onChange={handleChange}
-            />
+            >
+              <option value="">Select</option>
+              <option value="365">Daily</option>
+              <option value="52">Weekly</option>
+              <option value="12">Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="2">Semi-Annually</option>
+              <option value="1">Annually</option>
+            </select>
           </div>
 
           <div className={alignBoxes}>

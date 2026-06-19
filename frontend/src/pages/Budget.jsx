@@ -1,14 +1,15 @@
 import { useState } from "react";
+import Navbar from "../Navbar";
 
 function Budget() {
 
+    //Hooks
     const [formData, setFormData] = useState({
         "income": "",
     });
     const [expenses, setExpenses] = useState([
         { name: "", amount: "" }
     ]);
-
     const [result, setResult] = useState(null);
 
     //Add an expense
@@ -99,6 +100,7 @@ function Budget() {
     //Displays the form
     return (
         <div>
+            <Navbar/>
             <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Budget Calculator</h1>
 
             <div className="flex max-w-5xl px-24 gap-x-12 items-start">
@@ -134,7 +136,7 @@ function Budget() {
                             onChange={(e) => handleExpenseChange(index, "amount", e.target.value)}
                             />
 
-                            <button type="button" className="border p-1 rounded font-semibold text-[#a11010] bg-[#da9a10] hover:text-[#000000]" onClick={() => removeExpense(index)}>Remove</button>
+                            <button type="button" className="hover:text-[#a11010]" onClick={() => removeExpense(index)}>X</button>
                         </div>
                     ))}
 
