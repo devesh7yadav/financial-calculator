@@ -1,3 +1,4 @@
+//Light Mode
 #134074 - Dark Blue  --- Title colour
 #13315c - Darker Blue -- Label and Input Colours
 #0b2545 - Darkest Blue --- Navbar Colour/Subtitles and Button Text
@@ -7,3 +8,6 @@
 #2eb613 - Green --- Add Expense
 #000000 - Black --- Remove Text (Budget)
 #8da9c4 - Very Light Blue --- Hover
+
+//Dark Mode
+#403e3e - Dark Grey --- Background colour

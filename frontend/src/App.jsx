@@ -8,7 +8,7 @@ import Budget from "./pages/Budget";
 function App() {
 
   return (
-    <div className="">
+    <div>
       <Link className="flex justify-center font-bold text-4xl text-[#134074] my-6" to="/"> Financial Calculator </Link>
 
       <Routes>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../Navbar";
+import { labelDesign, inputDesign, alignBoxes } from "../Styles";
 
 function Budget() {
 
@@ -92,11 +93,6 @@ function Budget() {
         output = result;
     }
 
-    //Styling
-    const labelDesign = "w-48 shrink-0 font-bold text-[#13315c]";
-    const inputDesign = "outline-1 w-full border p-2 rounded font-semibold text-[#13315c]";
-    const alignBoxes = "flex items-center gap-4";
-    
     //Displays the form
     return (
         <div>
@@ -106,7 +102,7 @@ function Budget() {
             <div className="flex max-w-5xl px-24 gap-x-12 items-start">
                 <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
                     <div className={alignBoxes}>
-                        <label htmlFor="income" className={labelDesign}>Income ($)</label>
+                        <label className={labelDesign}>Income ($)</label>
                         <input
                             className={inputDesign}
                             type="number"
