@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../Navbar";
-import { labelDesign, inputDesign, alignBoxes } from "../Styles";
+import Output from "../Output";
+import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat } from "../Styles";
 
 function Budget() {
 
@@ -97,7 +98,7 @@ function Budget() {
     return (
         <div>
             <Navbar/>
-            <h1 className="flex justify-center font-semibold text-2xl text-[#0b2545] my-6">Budget Calculator</h1>
+            <h1 className={title}>Budget Calculator</h1>
 
             <div className="flex max-w-5xl px-24 gap-x-12 items-start">
                 <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
@@ -116,7 +117,7 @@ function Budget() {
 
                     {/*Adds expense textboxes */}
                     {expenses.map((expense, index) => (
-                        <div key={index} className="flex gap-x-6">
+                        <div className="flex gap-x-6">
                             <input
                             className="outline-1 border p-2 rounded font-semibold text-[#13315c]"
                             placeholder="Expense name"
@@ -138,14 +139,13 @@ function Budget() {
 
                     <button type="button" className="border p-1 rounded font-bold text-[#0b2545] bg-[#2eb613] hover:text-[#eef4ed]" onClick={addExpense}>Add Expense</button>
 
-                    <button type="submit" className="border p-3 rounded font-bold text-[#0b2545] bg-[#5f92cc] hover:text-[#8da9c4]">Submit</button>
-                    <button type="reset" className="border p-3 rounded font-bold text-[#a11010] bg-[#5f92cc] hover:text-[#8da9c4]">Clear</button>
+                    <div className={buttonFormat}>
+                        <button type="submit" className={`${buttonDesign} text-[#0b2545]`}>Submit</button>
+                        <button type="reset" className={`${buttonDesign} text-[#a11010]`}>Clear</button>
+                    </div>
                 </form>
 
-                <div className="min-w-[220px] border p-4 rounded">
-                    <h2 className="text-sm text-[#134074]">Amount Left:</h2>
-                    <div className="text-xl font-semibold text-[#13315c] mt-2">{output}</div>
-                </div>
+                <Output answer={output} text="You will have: "/>
             </div>
         </div>
     );
