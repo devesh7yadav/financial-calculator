@@ -83,12 +83,12 @@ function Savings() {
 
   //Displays the form
   return (
-    <div>
+    <div className="grid place-items-center">
       <Navbar/>
       <h1 className={title}>Savings Goal Calculator</h1>
 
-      <div className="flex max-w-5xl px-24 gap-x-12 items-start">
-        <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
+      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16">
+        <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
           <div className={alignBoxes}>
             <label htmlFor="goal" className={labelDesign}>Goal ($)</label>
             <input
@@ -143,7 +143,7 @@ function Savings() {
           </div>
         </form>
 
-        <Output answer={output} text="You will have: "/>
+        <Output answer={output} text="Monthly Contribution: "/>
 
       </div>
     </div>

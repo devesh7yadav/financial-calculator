@@ -96,12 +96,12 @@ function Budget() {
 
     //Displays the form
     return (
-        <div>
+        <div className="grid place-items-center">
             <Navbar/>
             <h1 className={title}>Budget Calculator</h1>
 
-            <div className="flex max-w-5xl px-24 gap-x-12 items-start">
-                <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
+            <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16">
+                <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
                     <div className={alignBoxes}>
                         <label className={labelDesign}>Income ($)</label>
                         <input
@@ -117,16 +117,16 @@ function Budget() {
 
                     {/*Adds expense textboxes */}
                     {expenses.map((expense, index) => (
-                        <div className="flex gap-x-6">
+                        <div className="flex gap-x-6 mx-4">
                             <input
-                            className="outline-1 border p-2 rounded font-semibold text-[#13315c]"
+                            className={inputDesign}
                             placeholder="Expense name"
                             value={expense.name}
                             onChange={(e) => handleExpenseChange(index, "name", e.target.value)}
                             />
 
                             <input
-                            className="outline-1 border p-2 rounded font-semibold text-[#13315c]"
+                            className={inputDesign}
                             type="number"
                             placeholder="Amount"
                             value={expense.amount}
@@ -137,7 +137,7 @@ function Budget() {
                         </div>
                     ))}
 
-                    <button type="button" className="border p-1 rounded font-bold text-[#0b2545] bg-[#2eb613] hover:text-[#eef4ed]" onClick={addExpense}>Add Expense</button>
+                    <button type="button" className="rounded font-bold text-xs md:text-base p-3 rounded text-[#0b2545] bg-[#2eb613] mx-4 hover:text-[#eef4ed]" onClick={addExpense}>Add Expense</button>
 
                     <div className={buttonFormat}>
                         <button type="submit" className={`${buttonDesign} text-[#0b2545]`}>Submit</button>
@@ -145,7 +145,7 @@ function Budget() {
                     </div>
                 </form>
 
-                <Output answer={output} text="You will have: "/>
+                <Output answer={output} text="Amount Left: "/>
             </div>
         </div>
     );

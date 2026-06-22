@@ -91,12 +91,12 @@ function Mortgage() {
  
   //Displays the form
   return (
-    <div>
+    <div className="grid place-items-center">
       <Navbar/>
       <h1 className={title}>Mortgage Calculator</h1>
 
-      <div className="flex max-w-5xl px-24 gap-x-12 items-start">
-        <form className="flex flex-col gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
+      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16">
+        <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
           <div className={alignBoxes}>
             <label htmlFor="principal" className={labelDesign}>Principal ($)</label> 
             <input
