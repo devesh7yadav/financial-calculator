@@ -9,5 +9,10 @@
 #000000 - Black --- Remove Text (Budget)
 #8da9c4 - Very Light Blue --- Hover
 
+//Pie Chart Colours
+#22bde4
+#dd446a
+#37b94c
+
 //Dark Mode
 #403e3e - Dark Grey --- Background colour

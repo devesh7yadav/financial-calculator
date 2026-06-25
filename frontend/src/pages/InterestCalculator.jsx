@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import Output from "../Output";
 import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat } from "../Styles";
+import InterestChart from "../charts/InterestChart";
 
 function InterestCalculator() {
 
@@ -156,6 +157,8 @@ function InterestCalculator() {
         </form>
 
         <Output answer={output} text="You will have: "/>
+
+        <InterestChart/>
 
       </div>
     </div>

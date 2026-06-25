@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import Output from "../Output";
 import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat } from "../Styles";
+import BudgetChart from "../charts/BudgetChart";
 
 function Budget() {
 
@@ -41,7 +42,7 @@ function Budget() {
     const handleExpenseChange = (index, field, value) => {
         const updated = [...expenses];
         updated[index][field] = value;
-        setExpenses(updated);
+        setExpenses(updated); 
     }
 
     //Sends to backend, handles the submit
@@ -100,7 +101,7 @@ function Budget() {
             <Navbar/>
             <h1 className={title}>Budget Calculator</h1>
 
-            <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16">
+            <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16 items-start">
                 <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
                     <div className={alignBoxes}>
                         <label className={labelDesign}>Income ($)</label>
@@ -117,7 +118,7 @@ function Budget() {
 
                     {/*Adds expense textboxes */}
                     {expenses.map((expense, index) => (
-                        <div className="flex gap-x-6 mx-4">
+                        <div key={index} className="flex gap-x-6 mx-4">
                             <input
                             className={inputDesign}
                             placeholder="Expense name"
@@ -145,7 +146,11 @@ function Budget() {
                     </div>
                 </form>
 
-                <Output answer={output} text="Amount Left: "/>
+                <div className="grid gap-6 md:justify-items-start">
+                    <Output answer={output} text="Amount Left: "/>
+                    <BudgetChart expenses={expenses}/>
+                </div>
+
             </div>
         </div>
     );
