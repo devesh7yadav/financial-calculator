@@ -8,6 +8,7 @@
 #2eb613 - Green --- Add Expense
 #000000 - Black --- Remove Text (Budget)
 #8da9c4 - Very Light Blue --- Hover
+#f6f8ee - Yellow-ish --- Homepage card background
 
 //Pie Chart Colours
 #22bde4 //Graph Colour

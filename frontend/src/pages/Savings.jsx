@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../Navbar";
 import Output from "../Output";
-import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat } from "../Styles";
+import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
 import SavingsChart from "../charts/SavingsChart";
 
 function Savings() {
@@ -14,7 +14,7 @@ function Savings() {
         "time": "",
     });
     const [result, setResult] = useState(null);
-    const [graphData, setGraphData] = useState(null);
+    const [graphData, setGraphData] = useState([{year:0, amount:0}]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -70,7 +70,7 @@ function Savings() {
         time: "",
     })
     setResult(null);
-    setGraphData(null);
+    setGraphData([{year:0, amount:0}]);
   }
 
   //Output
@@ -91,8 +91,8 @@ function Savings() {
       <Navbar/>
       <h1 className={title}>Savings Goal Calculator</h1>
 
-      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16 items-start">
-        <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
+      <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-2 md:gap-16 items-start mx-4">
+        <form className={inputCard} onSubmit={handleSubmit} onReset={handleReset}>
           <div className={alignBoxes}>
             <label htmlFor="goal" className={labelDesign}>Goal ($)</label>
             <input
@@ -147,7 +147,7 @@ function Savings() {
           </div>
         </form>
 
-        <div className="grid gap-6 md:justify-items-start">
+        <div className={outputCard}>
           <Output answer={output} text="Monthly Contribution: "/>
           <SavingsChart values={graphData}/>
         </div>

@@ -7,3 +7,6 @@ export const title = "grid text-xl md:text-2xl text-center font-semibold text-[#
 
 export const buttonDesign = "text-xs md:text-base p-3 rounded font-bold bg-[#5f92cc] hover:text-[#8da9c4]"
 export const buttonFormat = "grid grid-cols-[3fr_2fr] gap-4 mx-4";
+
+export const outputCard = "grid gap-6 md:justify-items-center border p-6 rounded-md shadow-xl";
+export const inputCard = "grid gap-6 flex-1 border p-6 rounded-md shadow-xl";
