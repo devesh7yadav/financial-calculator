@@ -26,6 +26,7 @@ function Budget() {
     //Remove an expense
     const removeExpense = (index) => {
         setExpenses(prev => prev.filter((_, i) => i !== index));
+        setResult(null);
     }
 
     //Handle an income change

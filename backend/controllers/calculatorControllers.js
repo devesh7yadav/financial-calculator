@@ -9,12 +9,23 @@ const findInterest = async (req, res) => {
         return res.status(400).json({ message: "Missing fields" });
     } 
 
+    let values = [];
+    let amount = 0;
+
     try {
-        //Calculate the compounded amount
         const decimal_rate = rate / 100;
         const val1 = 1 + (decimal_rate/freq);
-        const amount = principal * (val1 ** (freq * time));
-        return res.json({amount});
+
+        //Gets the values for different years
+        for (let i = 0; i <= time; i++){
+            //Calculates the compounded amount
+            amount = principal * (val1 ** (freq * i));
+            values.push({
+                year: i,
+                amount: amount.toFixed(2)
+            });
+        }
+        return res.json({amount, values});
     } catch (error) {
         return res.status(500).json({ message: "Server error" });
     }
@@ -43,7 +54,25 @@ const savingsGoal = async (req, res) => {
             const val1 = (1 + monthly_interest) ** months
             amount = ((goal - current * val1) * monthly_interest) / (val1 - 1);
         }
-        return res.json({amount});
+
+        //Graphing, shows progress over years
+        let values = [];
+        let balance = current;
+        for(let i = 0; i <= months; i++){
+            //If over 120 months, it will only show a point every 6 months
+            if(months <= 120 || i % 6 === 0){
+                values.push({
+                year: i,
+                amount: Number(balance.toFixed(2))
+            });
+            }
+            balance = balance * (1 + monthly_interest) + amount;
+        }
+
+        return res.json({
+            amount,
+            values
+        });
     } catch (error) {
         return res.status(500).json({ message: "Server error" });
     }
@@ -72,7 +101,13 @@ const mortgage = async (req, res) => {
             amount = (principal * monthly_interest) / (1 - (1 + monthly_interest) ** -months);
         }
 
-        return res.json({amount});
+        //Total amount of interest
+        const totalInterest = amount * months - principal;
+
+        return res.json({
+            amount,
+            totalInterest
+        });
 
     } catch (error) {
         return res.status(500).json({ message: "Server error" });

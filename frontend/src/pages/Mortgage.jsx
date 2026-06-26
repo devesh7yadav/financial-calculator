@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import Output from "../Output";
 import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat } from "../Styles";
+import MortgageChart from "../charts/MortgageChart";
 
 function Mortgage() {
 
@@ -12,6 +13,7 @@ function Mortgage() {
         "time": "",
     });
     const [result, setResult] = useState(null);
+    const [interestAmount, setInterestAmount] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -66,6 +68,7 @@ function Mortgage() {
         }
 
         setResult(Number(data.amount).toFixed(2));
+        setInterestAmount(Number(data.totalInterest).toFixed(2));
     };
 
 
@@ -77,6 +80,7 @@ function Mortgage() {
         time: "",
     })
     setResult(null);
+    setInterestAmount(null);
   }
 
   //Output
@@ -95,7 +99,7 @@ function Mortgage() {
       <Navbar/>
       <h1 className={title}>Mortgage Calculator</h1>
 
-      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16">
+      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16 items-start">
         <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
           <div className={alignBoxes}>
             <label htmlFor="principal" className={labelDesign}>Principal ($)</label> 
@@ -110,7 +114,7 @@ function Mortgage() {
           </div>
 
           <div className={alignBoxes}>
-            <label htmlFor="principal" className={labelDesign}>Annual Interest Rate (%)</label> 
+            <label htmlFor="interest" className={labelDesign}>Annual Interest Rate (%)</label> 
             <input
               className={inputDesign}
               type="number"
@@ -122,7 +126,7 @@ function Mortgage() {
           </div>
 
           <div className={alignBoxes}>
-            <label htmlFor="principal" className={labelDesign}>Time (yrs)</label> 
+            <label htmlFor="time" className={labelDesign}>Time (yrs)</label> 
             <input
               className={inputDesign}
               type="number"
@@ -139,7 +143,11 @@ function Mortgage() {
           </div>
         </form>
 
-        <Output answer={output} text="You will pay: "/>
+        <div className="grid gap-6 md:justify-items-start">
+          <Output answer={output} text="You will pay: "/>
+          <MortgageChart principal={Number(formData.principal)} interest={Number(interestAmount)}/>
+        </div>
+
 
       </div>
     </div>

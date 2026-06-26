@@ -1,8 +1,8 @@
-//Shows growth over time
+//Shows savings over time
 
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, Tooltip, ResponsiveContainer} from 'recharts';
 
-function InterestChart( {values} ) {
+function SavingsChart( {values} ) {
 
     return(
        <div className="w-full h-[450px]">
@@ -17,7 +17,7 @@ function InterestChart( {values} ) {
                 }}
             >
                 <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="year" label={{value: "Time (Years)", offset: -10, position: 'insideBottom'}}/>
+                    <XAxis dataKey="year" label={{value: "Time (Months)", offset: -10, position: 'insideBottom'}}/>
                     <YAxis dataKey="amount" label={{value: "Amount ($)", offset: -10, angle:-90, position: 'insideLeft'}}/>
                     <Tooltip />
                     <Line
@@ -32,4 +32,4 @@ function InterestChart( {values} ) {
     )
 }
 
-export default InterestChart;
+export default SavingsChart;

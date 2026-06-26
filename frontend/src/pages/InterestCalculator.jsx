@@ -14,6 +14,7 @@ function InterestCalculator() {
     time: "",
   });
   const [result, setResult] = useState(null);
+  const [graphData, setGraphData] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,6 +65,7 @@ function InterestCalculator() {
     }
 
     setResult(Number(data.amount).toFixed(2));
+    setGraphData(data.values);
   };
 
   //Resets all the fields
@@ -75,6 +77,7 @@ function InterestCalculator() {
         time: "",
     })
     setResult(null);
+    setGraphData(null);
   }
 
   //Output
@@ -93,7 +96,7 @@ function InterestCalculator() {
       <Navbar/>
       <h1 className={title}>Compound Interest Calculator</h1>
 
-      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16">
+      <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-16 items-start">
         <form className="grid gap-6 flex-1" onSubmit={handleSubmit} onReset={handleReset}>
           <div className={alignBoxes}>
             <label htmlFor="principal" className={labelDesign}>Principal ($)</label>
@@ -156,9 +159,10 @@ function InterestCalculator() {
           </div>
         </form>
 
-        <Output answer={output} text="You will have: "/>
-
-        <InterestChart/>
+        <div className="grid gap-6 md:justify-items-start">
+          <Output answer={output} text="You will have: "/>
+          <InterestChart values={graphData}/>
+        </div>
 
       </div>
     </div>

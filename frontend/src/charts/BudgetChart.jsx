@@ -1,8 +1,10 @@
+//Shows a breadown of expenses
+
 import { PieChart, Pie, Tooltip, Cell, Legend } from "recharts";
 
 function BudgetChart({ expenses }) {
 
-    //Lopo through the expense array
+    //Loops through the expense array
     const data = expenses
         .filter(item => item.amount)
         .map(item => ({
