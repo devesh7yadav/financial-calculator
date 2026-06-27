@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../Navbar";
 import Output from "../Output";
-import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
+import { labelDesign, inputDesign, alignBoxes, title, submitButtonDesign, clearButtonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
 import SavingsChart from "../charts/SavingsChart";
 
 function Savings() {
@@ -142,8 +142,8 @@ function Savings() {
           </div>
 
           <div className={buttonFormat}>
-            <button type="submit" className={`${buttonDesign} text-[#0b2545]`}>Submit</button>
-            <button type="reset" className={`${buttonDesign} text-[#a11010]`}>Clear</button>
+            <button type="reset" className={clearButtonDesign}>Clear</button>
+            <button type="submit" className={submitButtonDesign}>Submit</button>
           </div>
         </form>
 

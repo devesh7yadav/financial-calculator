@@ -16,13 +16,13 @@ function BudgetChart({ expenses }) {
         data.push({name:"No Expenses", value: 1});
     }
 
-    const colours = ["#22bde4", "#dd446a", "#37b94c"];
+    const colours = ["#22bde4", "#dd446a", "#37b94c", "#ad68db", "#dfe157", "#db68af", "#e6b857"];
 
     return (
-        <div className="grid justify-items-center"> 
+        <div className="grid justify-items-center p-2"> 
             <h2>Expense Breakdown</h2>
 
-            <PieChart width={250} height={225}>
+            <PieChart width={250} height={250}>
                 <Pie
                     data={data}
                     dataKey="value"

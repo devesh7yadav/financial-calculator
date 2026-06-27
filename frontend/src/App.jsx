@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <Link className="grid text-3xl md:text-4xl justify-center font-bold text-[#134074] my-6" to="/"> Financial Calculator </Link>
+      <Link className="grid text-3xl md:text-4xl justify-center font-bold text-[#134074] my-6 pb-4 shadow-md" to="/"> Financial Calculator </Link>
 
       <Routes>
         <Route path="/" element={<Home />} />

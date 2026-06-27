@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../Navbar";
 import Output from "../Output";
-import { labelDesign, inputDesign, alignBoxes, title, buttonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
+import { labelDesign, inputDesign, alignBoxes, title, submitButtonDesign, clearButtonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
 import BudgetChart from "../charts/BudgetChart";
 
 function Budget() {
@@ -139,11 +139,11 @@ function Budget() {
                         </div>
                     ))}
 
-                    <button type="button" className="rounded font-bold text-xs md:text-base p-3 rounded text-[#0b2545] bg-[#2eb613] mx-4 hover:text-[#eef4ed]" onClick={addExpense}>Add Expense</button>
+                    <button type="button" className="rounded font-bold text-xs md:text-base p-3 rounded text-[#0b2545] bg-[#a0ce96] mx-4 hover:text-[#f6f8ee]" onClick={addExpense}>Add Expense</button>
 
                     <div className={buttonFormat}>
-                        <button type="submit" className={`${buttonDesign} text-[#0b2545]`}>Submit</button>
-                        <button type="reset" className={`${buttonDesign} text-[#a11010]`}>Clear</button>
+                        <button type="reset" className={clearButtonDesign}>Clear</button>
+                        <button type="submit" className={submitButtonDesign}>Submit</button>
                     </div>
                 </form>
 
