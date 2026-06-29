@@ -6,7 +6,7 @@
 #b0acac - Grey --- Clear Button
 #a11010 - Red --- Delete Expense
 #a0ce96 - Green --- Add Expense
-#8da9c4 - Very Light Blue --- Hover (Old, not used anymore)
+#8da9c4 - Very Light Blue --- Hover (Navbar and Homepage)
 #f6f8ee - Yellow-ish --- Card background/Hover
 #b5d1ec - Light Blue --- Output background
 

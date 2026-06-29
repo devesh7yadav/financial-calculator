@@ -14,7 +14,7 @@ function InterestCalculator() {
     time: "",
   });
   const [result, setResult] = useState(null);
-  const [graphData, setGraphData] = useState([{year:0, amount:0}]);
+  const [graphData, setGraphData] = useState([{year:0, Amount:0}]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

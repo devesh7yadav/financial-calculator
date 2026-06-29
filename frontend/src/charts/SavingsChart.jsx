@@ -23,6 +23,7 @@ function SavingsChart( {values} ) {
                     <Line
                         type="monotone"
                         dataKey="amount"
+                        name="Amount"
                         stroke="#22bde4"
                         strokeWidth={3}
                     />
