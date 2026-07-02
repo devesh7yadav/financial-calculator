@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Navbar from "../Navbar";
-import Output from "../Output";
+import Navbar from "../components/Navbar";
+import Output from "../components/Output";
 import { labelDesign, inputDesign, alignBoxes, title, submitButtonDesign, clearButtonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
 import MortgageChart from "../charts/MortgageChart";
 
@@ -96,6 +96,8 @@ function Mortgage() {
   //Displays the form
   return (
     <div className="grid place-items-center">
+      <title>Mortgage Calculator</title>
+
       <Navbar/>
       <h1 className={title}>Mortgage Calculator</h1>
 

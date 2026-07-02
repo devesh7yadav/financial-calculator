@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Navbar from "../Navbar";
-import Output from "../Output";
+import Navbar from "../components/Navbar";
+import Output from "../components/Output";
 import { labelDesign, inputDesign, alignBoxes, title, submitButtonDesign, clearButtonDesign, buttonFormat, outputCard, inputCard } from "../Styles";
 import SavingsChart from "../charts/SavingsChart";
 
@@ -88,6 +88,8 @@ function Savings() {
   //Displays the form
   return (
     <div className="grid place-items-center">
+      <title>Savings Goal Calculator</title>
+
       <Navbar/>
       <h1 className={title}>Savings Goal Calculator</h1>
 
