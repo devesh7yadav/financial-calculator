@@ -1,7 +1,8 @@
+//UI Colours
 #134074 - Dark Blue  --- Title colour
 #13315c - Darker Blue -- Label and Input Colours
 #0b2545 - Darkest Blue --- Navbar Colour/Subtitles and Button Text
-#5f92cc - Light Blue - Button Background Colour
+#5f92cc - Light Blue - Submit Button Background Colour
 #eef4ed - White-ish  --- Background colour
 #b0acac - Grey --- Clear Button
 #a11010 - Red --- Delete Expense

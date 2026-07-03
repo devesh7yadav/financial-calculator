@@ -12,7 +12,7 @@ function Home() {
     return (
         <div>
             <title>Financial Calculator</title>
-
+            
             <h2 className="text-center sm:text-xl md:text-2xl text-[#0b2545] my-10">Welcome, click on one of the calculators below.</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 place-items-center gap-12 w-fit mx-auto border rounded-xl p-12 shadow-xl bg-[#f6f8ee]">
