@@ -137,11 +137,11 @@ function Budget() {
                             onChange={(e) => handleExpenseChange(index, "amount", e.target.value)}
                             />
 
-                            <button type="button" className="hover:text-[#a11010]" onClick={() => removeExpense(index)}>X</button>
+                            <button type="button" className="cursor-pointer hover:text-[#a11010]" onClick={() => removeExpense(index)}>X</button>
                         </div>
                     ))}
 
-                    <button type="button" className="rounded font-bold text-xs md:text-base p-3 rounded text-[#0b2545] bg-[#a0ce96] mx-4 hover:text-[#f6f8ee]" onClick={addExpense}>Add Expense</button>
+                    <button type="button" className="rounded font-bold text-xs md:text-base p-3 rounded text-[#0b2545] bg-[#a0ce96] mx-4 cursor-pointer hover:text-[#f6f8ee]" onClick={addExpense}>Add Expense</button>
 
                     <div className={buttonFormat}>
                         <button type="reset" className={clearButtonDesign}>Clear</button>

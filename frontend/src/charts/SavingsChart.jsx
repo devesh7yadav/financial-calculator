@@ -15,6 +15,7 @@ function SavingsChart( {values} ) {
                     left: 20,
                     bottom: 40
                 }}
+                style={{ cursor: 'pointer' }}
             >
                 <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis dataKey="year" label={{value: "Time (Months)", offset: -10, position: 'insideBottom'}}/>

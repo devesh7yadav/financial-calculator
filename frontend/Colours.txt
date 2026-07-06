@@ -1,13 +1,13 @@
 //UI Colours
-#134074 - Dark Blue  --- Title colour
-#13315c - Darker Blue -- Label and Input Colours
-#0b2545 - Darkest Blue --- Navbar Colour/Subtitles and Button Text
-#5f92cc - Light Blue - Submit Button Background Colour
-#eef4ed - White-ish  --- Background colour
+#134074 - Dark Blue  --- Title 
+#13315c - Darker Blue -- Label & Input 
+#0b2545 - Darkest Blue --- Navbar, Subtitles & Button Text
+#5f92cc - Light Blue - Submit Button Background 
+#eef4ed - White-ish  --- Background 
 #b0acac - Grey --- Clear Button
 #a11010 - Red --- Delete Expense
 #a0ce96 - Green --- Add Expense
-#8da9c4 - Very Light Blue --- Hover (Navbar and Homepage)
+#8da9c4 - Very Light Blue --- Hover (Navbar & Homepage)
 #f6f8ee - Yellow-ish --- Card background/Hover
 #b5d1ec - Light Blue --- Output background
 

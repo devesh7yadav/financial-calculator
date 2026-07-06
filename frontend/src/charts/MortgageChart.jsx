@@ -25,6 +25,7 @@ function MortgageChart( {principal, interest}) {
                     nameKey="name"
                     dataKey="value"
                     outerRadius={80}
+                    style={{ cursor: 'pointer' }}
                 >
                     <Cell fill={"#22bde4"}/>
                     <Cell fill={"#dd446a"}/>

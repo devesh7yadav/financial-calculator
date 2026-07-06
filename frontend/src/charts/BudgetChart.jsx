@@ -27,6 +27,7 @@ function BudgetChart({ expenses }) {
                     data={data}
                     dataKey="value"
                     outerRadius={80}
+                    style={{ cursor: 'pointer' }}
                 >
                     {data.map((_, index) => (
                         <Cell key={index} fill={colours[index % colours.length]} />

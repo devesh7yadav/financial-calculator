@@ -40,14 +40,14 @@ function Savings() {
         }
 
         const response = await fetch("http://localhost:5000/api/savingsGoal", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            goal: Number(formData.goal),
-            current: Number(formData.current),
-            interest: Number(formData.interest),
-            time: Number(formData.time),
-        }),
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              goal: Number(formData.goal),
+              current: Number(formData.current),
+              interest: Number(formData.interest),
+              time: Number(formData.time),
+          }),
         });
 
         const data = await response.json();

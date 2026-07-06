@@ -127,7 +127,7 @@ function InterestCalculator() {
           <div className={alignBoxes}>
             <label htmlFor="freq" className={labelDesign}>Frequency (/yr)</label>
             <select
-              className={inputDesign}
+              className="grid text-sm md:text-base outline-1 w-full min-w-24 border p-2 rounded font-semibold text-[#13315c] cursor-pointer bg-[#eef4ed]"
               id="freq"
               name="freq"
               value={formData.freq}

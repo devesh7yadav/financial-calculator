@@ -45,13 +45,13 @@ function Mortgage() {
         }
 
         const response = await fetch("http://localhost:5000/api/mortgage", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            principal: Number(formData.principal),
-            interest: Number(formData.interest),
-            time: Number(formData.time),
-        }),
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              principal: Number(formData.principal),
+              interest: Number(formData.interest),
+              time: Number(formData.time),
+          }),
         });
 
         const data = await response.json();
@@ -149,7 +149,6 @@ function Mortgage() {
           <Output answer={output} text="You will pay: "/>
           <MortgageChart principal={Number(formData.principal)} interest={Number(interestAmount)}/>
         </div>
-
 
       </div>
     </div>
