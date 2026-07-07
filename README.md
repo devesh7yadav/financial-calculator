@@ -1,4 +1,4 @@
-# financial-calculator
+# Financial Calculator
 
 A simple financial calculator I built to learn about web development. Includes four calculators and a chart for each one. Website is also responsive and fits all screen sizes.
 
