@@ -2,6 +2,9 @@
 
 A simple financial calculator I built to learn about web development. Includes four calculators and a chart for each one. 
 
+## Website
+[Live Link](https://my-financial-calculator.vercel.app/)
+
 ## Demo
 
 ![Screenshot](./media/screenshot.png)
