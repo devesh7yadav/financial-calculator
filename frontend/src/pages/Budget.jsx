@@ -57,7 +57,7 @@ function Budget() {
             return;
         }
 
-        const response = await fetch("http://localhost:5000/api/budget", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/budget`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
